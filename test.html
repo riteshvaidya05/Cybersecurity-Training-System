@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cybersecurity Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <script>
+        function checkCode() {
+            let uniqueCode = document.getElementById("unique_code").value.trim();
+
+            if (!uniqueCode) {
+                alert("Please enter your Unique Code to start the test.");
+                return;
+            }
+
+            
+            document.getElementById("codeEntry").style.display = "none";
+            document.getElementById("testContent").style.display = "block";
+        }
+
+        function gradeTest() {
+            let score = 0;
+            const answers = ["a", "c", "b", "b", "a", "c", "c", "b", "a", "b"];
+            let uniqueCode = document.getElementById("unique_code").value.trim();
+
+            for (let i = 1; i <= 10; i++) {
+                let selected = document.querySelector(`input[name='q${i}']:checked`);
+                if (selected && selected.value === answers[i - 1]) {
+                    score++;
+                }
+            }
+
+            fetch('save_results.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'unique_code=' + encodeURIComponent(uniqueCode) + '&score=' + score
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === "success") {
+                    alert(`Your Score: ${score}/10. Test result saved successfully!`);
+                } else {
+                    alert("Error saving your test result.");
+                }
+                
+                location.reload();
+            });
+        }
+    </script>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul><li><strong>Aviation Cybersecurity Training ✈︎</strong></li></ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="test.html">Test</a></li>
+            <li><a href="logout.php">Logout</a></li>
+            <style>
+                li a{
+                    color: rgb(0, 0, 0);
+                    font-size: 20px; 
+                }
+                
+            </style>
+        </ul>
+    </nav>
+
+    <main class="container">
+        
+        <div id="codeEntry">
+            <h2>Enter Your Unique Code to Start</h2>
+            <input type="text" id="unique_code" placeholder="Enter Unique Code" required>
+            <button type="button" onclick="checkCode()">Start Test</button>
+            <style>
+                button{
+                    color: rgb(255, 255, 255);
+                    background-color: rgb(255, 0, 0);
+                }
+
+                h2 {
+                    color: rgb(255, 0, 0);
+                }
+               
+            </style>
+        </div>
+
+        
+        <div id="testContent" style="display: none;">
+            <h2>Cybersecurity Assessment</h2>
+            <form>
+                <p>1. What is Phishing?</p>
+                <label><input type="radio" name="q1" value="a"> A fake email to steal information</label>
+                <label><input type="radio" name="q1" value="b"> A type of malware</label>
+                <label><input type="radio" name="q1" value="c"> A strong password policy</label>
+
+                <p>2. How to prevent malware?</p>
+                <label><input type="radio" name="q2" value="a"> Using weak passwords</label>
+                <label><input type="radio" name="q2" value="b"> Ignoring updates</label>
+                <label><input type="radio" name="q2" value="c"> Installing antivirus software</label>
+
+                <p>3. What is Ransomware?</p>
+                <label><input type="radio" name="q3" value="a"> A password manager</label>
+                <label><input type="radio" name="q3" value="b"> A type of malware</label>
+                <label><input type="radio" name="q3" value="c"> A secure VPN</label>
+
+                <p>4. How can you secure your email?</p>
+                <label><input type="radio" name="q4" value="a"> Clicking unknown links</label>
+                <label><input type="radio" name="q4" value="b"> Enabling multi-factor authentication</label>
+                <label><input type="radio" name="q4" value="c"> Using weak passwords</label>
+
+                <p>5. What is a strong password?</p>
+                <label><input type="radio" name="q5" value="a"> 12+ characters with symbols</label>
+                <label><input type="radio" name="q5" value="b"> Your name</label>
+                <label><input type="radio" name="q5" value="c"> 123456</label>
+
+                <p>6. What does a firewall do?</p>
+                <label><input type="radio" name="q6" value="a"> Makes the internet faster</label>
+                <label><input type="radio" name="q6" value="b"> Blocks all websites</label>
+                <label><input type="radio" name="q6" value="c"> Protects from unauthorized access</label>
+
+                <p>7. How do hackers exploit weak Wi-Fi?</p>
+                <label><input type="radio" name="q7" value="a"> By using VPNs</label>
+                <label><input type="radio" name="q7" value="b"> By updating security patches</label>
+                <label><input type="radio" name="q7" value="c"> By intercepting unencrypted data</label>
+
+                <p>8. What should you do when you receive a suspicious email?</p>
+                <label><input type="radio" name="q8" value="a"> Click on the link to check</label>
+                <label><input type="radio" name="q8" value="b"> Delete it without opening</label>
+                <label><input type="radio" name="q8" value="c"> Forward it to a friend</label>
+
+                <p>9. What is social engineering?</p>
+                <label><input type="radio" name="q9" value="a"> Manipulating people to get confidential info</label>
+                <label><input type="radio" name="q9" value="b"> A strong encryption method</label>
+                <label><input type="radio" name="q9" value="c"> A software update</label>
+
+                <p>10. What is the safest way to store passwords?</p>
+                <label><input type="radio" name="q10" value="a"> Writing them down</label>
+                <label><input type="radio" name="q10" value="b"> Using a password manager</label>
+                <label><input type="radio" name="q10" value="c"> Reusing the same password everywhere</label>
+
+                <button type="button" onclick="gradeTest()">Submit Test</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="container">
+        <small>
+            <a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a>
+            <style>
+                small a{
+                    color: rgb(0, 0, 0);
+                    font-family: 30px;
+                }
+               
+            </style>
+        </small>
+    </footer>
+</body>
+</html>

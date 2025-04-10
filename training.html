@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Attack Training</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    .section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .assessment {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul><li><strong>Aviation Cybersecurity Training ✈︎</strong></li></ul>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="training.html">Training</a></li>
+      <li><a href="test.html">Test</a></li>
+      <li><a href="logout.php">Logout</a></li>
+      <style>
+        li a{
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+                    }
+        
+    </style>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h2>Top 5 Common Cyber Attacks</h2>
+  <style>
+
+    h2{
+      color: rgb(230, 6, 6);
+    }
+  </style>
+
+    <div class="section" id="phishing">
+      <h3>1. Phishing Attacks</h3>
+      <p><strong>What is it?:</strong> Phishing is a cyberattack where fake emails, websites, or messages trick users into providing personal or login information. These attacks often pretend to be from trusted sources like banks, coworkers, or services you use.</p>
+      <p><strong>Prevention:</strong> Never click on suspicious or unknown links.<br>
+        Always check the sender's email address carefully.<br>
+                Use spam filters and email verification tools.<br>
+                Train employees with simulated phishing exercises.</p>
+      <input type="text" placeholder="Enter Unique Code" id="code_phishing" />
+      <button onclick="showAssessment('phishing')">Start Assessment</button>
+      <form class="assessment" id="assessment_phishing">
+        <p>1. What is phishing?</p>
+        <label><input type="radio" name="q1_phishing" value="a" /> Fake email scam</label>
+        <label><input type="radio" name="q1_phishing" value="b" /> Antivirus program</label>
+        <label><input type="radio" name="q1_phishing" value="c" /> Password manager</label>
+
+        <p>2. What should you do with a suspicious email?</p>
+        <label><input type="radio" name="q2_phishing" value="a" /> Click to verify</label>
+        <label><input type="radio" name="q2_phishing" value="b" /> Delete immediately</label>
+        <label><input type="radio" name="q2_phishing" value="c" /> Forward to friends</label>
+
+        <button type="button" onclick="submitAssessment('phishing', ['a', 'b'])">Submit</button>
+        <style>
+          button{
+            color: rgb(255, 255, 255);
+            background-color: rgb(230, 6, 6);
+          }
+        </style>
+      </form>
+    </div>
+
+    
+    <div class="section" id="malware">
+      <h3>2. Malware</h3>
+      <p><strong>What is it?</strong> Malware is malicious software designed to damage or steal data from devices. It includes viruses, spyware, trojans, and worms, often installed without the user’s knowledge.</p>
+      <p><strong>Prevention:</strong> Keep software and systems fully updated.<br>
+        Use reliable antivirus and anti-malware software.<br>
+               Avoid downloading files or apps from unknown sources.<br>
+                Disable automatic downloads in browsers and emails.</p>
+      <input type="text" placeholder="Enter Unique Code" id="code_malware" />
+      <button onclick="showAssessment('malware')">Start Assessment</button>
+      <form class="assessment" id="assessment_malware">
+        <p>1. What is malware?</p>
+        <label><input type="radio" name="q1_malware" value="a" /> Secure VPN</label>
+        <label><input type="radio" name="q1_malware" value="b" /> Malicious software</label>
+        <label><input type="radio" name="q1_malware" value="c" /> Firewall setting</label>
+
+        <p>2. How to prevent malware?</p>
+        <label><input type="radio" name="q2_malware" value="a" /> Avoid updates</label>
+        <label><input type="radio" name="q2_malware" value="b" /> Use antivirus software</label>
+        <label><input type="radio" name="q2_malware" value="c" /> Disable firewall</label>
+
+        <button type="button" onclick="submitAssessment('malware', ['b', 'b'])">Submit</button>
+      </form>
+    </div>
+
+    
+    <div class="section" id="ransomware">
+      <h3>3. Ransomware</h3>
+      <p><strong>What is it?</strong> Ransomware is a type of malware that encrypts files and demands payment to unlock them. Victims may lose access to important data permanently.</p>
+      <p><strong>Prevention:</strong>Regularly back up important data offline.<br>
+        Avoid clicking on unknown links or attachments.<br>
+                Keep all software patched and secure.<br>
+                Use strong email security tools and endpoint protection.</p>
+      <input type="text" placeholder="Enter Unique Code" id="code_ransomware" />
+      <button onclick="showAssessment('ransomware')">Start Assessment</button>
+      <form class="assessment" id="assessment_ransomware">
+        <p>1. What does ransomware do?</p>
+        <label><input type="radio" name="q1_ransomware" value="a" /> Deletes your emails</label>
+        <label><input type="radio" name="q1_ransomware" value="b" /> Encrypts files for ransom</label>
+        <label><input type="radio" name="q1_ransomware" value="c" /> Tracks your GPS location</label>
+
+        <p>2. How to prevent ransomware?</p>
+        <label><input type="radio" name="q2_ransomware" value="a" /> Backup data</label>
+        <label><input type="radio" name="q2_ransomware" value="b" /> Turn off antivirus</label>
+        <label><input type="radio" name="q2_ransomware" value="c" /> Open unknown links</label>
+
+        <button type="button" onclick="submitAssessment('ransomware', ['b', 'a'])">Submit</button>
+      </form>
+    </div>
+
+    
+    <div class="section" id="wifi">
+      <h3>4. Wi-Fi Network Attacks</h3>
+      <p><strong>What is it?</strong>Wi-Fi network attacks happen when hackers intercept unencrypted data on public or weak networks. They can steal passwords, emails, and other private information.</p>
+      <p><strong>Prevention:</strong> Always use a VPN on public Wi-Fi.<br>
+        Never access sensitive information over public networks.<br>
+                Disable auto-connect to open Wi-Fi networks.<br>
+                Ensure your home or office Wi-Fi uses strong encryption (WPA3).</p>
+      <input type="text" placeholder="Enter Unique Code" id="code_wifi" />
+      <button onclick="showAssessment('wifi')">Start Assessment</button>
+      <form class="assessment" id="assessment_wifi">
+        <p>1. Why is public Wi-Fi risky?</p>
+        <label><input type="radio" name="q1_wifi" value="a" /> It’s fast</label>
+        <label><input type="radio" name="q1_wifi" value="b" /> It’s often unencrypted</label>
+        <label><input type="radio" name="q1_wifi" value="c" /> It blocks malware</label>
+
+        <p>2. What should you use on public Wi-Fi?</p>
+        <label><input type="radio" name="q2_wifi" value="a" /> VPN</label>
+        <label><input type="radio" name="q2_wifi" value="b" /> Disable antivirus</label>
+        <label><input type="radio" name="q2_wifi" value="c" /> Use email heavily</label>
+
+        <button type="button" onclick="submitAssessment('wifi', ['b', 'a'])">Submit</button>
+      </form>
+    </div>
+
+    
+    <div class="section" id="social">
+      <h3>5. Social Engineering</h3>
+      <p><strong>What is it?</strong> Social engineering uses manipulation or deception to trick people into revealing confidential information or granting access to systems.</p>
+      <p><strong>Prevention:</strong> Be skeptical of unexpected requests for sensitive info.<br>
+        Verify identities before sharing any confidential data.<br>
+                Provide regular training to staff on manipulation tactics.<br>
+                Establish strict protocols for handling private information.</p>
+      <input type="text" placeholder="Enter Unique Code" id="code_social" />
+      <button onclick="showAssessment('social')">Start Assessment</button>
+      <form class="assessment" id="assessment_social">
+        <p>1. What is social engineering?</p>
+        <label><input type="radio" name="q1_social" value="a" /> Using strong passwords</label>
+        <label><input type="radio" name="q1_social" value="b" /> Manipulating people</label>
+        <label><input type="radio" name="q1_social" value="c" /> Encrypting files</label>
+
+        <p>2. How to avoid social engineering attacks?</p>
+        <label><input type="radio" name="q2_social" value="a" /> Verify requests</label>
+        <label><input type="radio" name="q2_social" value="b" /> Share passwords openly</label>
+        <label><input type="radio" name="q2_social" value="c" /> Ignore security training</label>
+
+        <button type="button" onclick="submitAssessment('social', ['b', 'a'])">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function showAssessment(attack) {
+      document.getElementById(`assessment_${attack}`).style.display = 'block';
+    }
+
+    function submitAssessment(attack, correctAnswers) {
+      const code = document.getElementById(`code_${attack}`).value.trim();
+      if (!code) {
+        alert("Please enter your Unique Code before submitting.");
+        return;
+      }
+
+      let score = 0;
+      for (let i = 0; i < correctAnswers.length; i++) {
+        const selected = document.querySelector(`input[name='q${i + 1}_${attack}']:checked`);
+        if (selected && selected.value === correctAnswers[i]) {
+          score++;
+        }
+      }
+
+      fetch('save_attack_assessment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `attack_type=${attack}&unique_code=${encodeURIComponent(code)}&score=${score}`
+      })
+      .then(res => res.text())
+      .then(msg => alert(msg === 'success' ? `Score saved: ${score}/${correctAnswers.length}` : 'Failed to save result'))
+      .then(() => location.reload());
+    }
+  </script>
+
+  <footer class="container">
+    <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a>
+      <style>
+        small a{
+            color: rgb(0, 0, 0);
+            font-family: 30px;
+        }
+       
+    </style>
+    </small>
+  </footer>
+</body>
+</html>
