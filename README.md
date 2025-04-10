@@ -72,7 +72,7 @@ Screenshots are included in the `/screenshots` folder and in the Word report to 
 
 ## Author
 
-**Ritesh**  
+**Ritesh Vaidya**  
 Final Year Computing Student – 2025 -UA92  
 This project was developed for academic use only and complies with digital ethics guidelines.
 
