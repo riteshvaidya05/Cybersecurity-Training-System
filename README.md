@@ -80,5 +80,5 @@ This project was developed for academic use only and complies with digital ethic
 
 ## GitHub Repository
 
-[https://github.com/yourusername/aviation-cybersecurity-training](https://github.com/yourusername/aviation-cybersecurity-training)
+https://github.com/riteshvaidya05/Cybersecurity-Training-System.git
 
